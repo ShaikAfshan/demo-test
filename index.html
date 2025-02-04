@@ -21,6 +21,19 @@
 			console.error('Error loading Embedded Messaging: ', err);
 		}
 	};
+	window.addEventListener("onEmbeddedMessagingReady", e => {
+        //log event
+        console.log("onEmbeddedMessagingReady event triggered");
+        
+        //set visible prechat field
+        embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
+            // List the pre-chat field names with the value and whether
+            //It's editable in the pre-chat form.
+            "User_Email": {
+              "value": email,
+              "isEditableByEndUser": true
+            }
+        });
 </script>
 <script type='text/javascript' src='https://orgfarm-e6e6d8f5fb-dev-ed.develop.my.site.com/ESWBWDeployment1738667212269/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
   </body>
